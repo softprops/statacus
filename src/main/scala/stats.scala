@@ -31,6 +31,11 @@ case class Stats(host: String, port: Int = 8125) {
   private val chan = DatagramChannel.open
   private val rand = new Random
 
+  def counter[T](key: String, by: Int = 1, rate: Double = 1.0)(implicit p: Pusher[T]) = new {
+     def inc = Stats.this.inc(key, by, rate)
+     def dec = Stats.this.dec(key, by, rate)
+  }
+
   def inc[T](key: String, by: Int = 1, rate: Double = 1.0)(implicit p: Pusher[T]) =
     count(if(by < 0) -by else by, rate)(key)(p)
 

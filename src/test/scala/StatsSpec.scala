@@ -39,7 +39,12 @@ object StatsSpec extends Specification {
     }
     "denote some ratio of samples" in {
       Stats("localhost").count(rate = 0.25)(
-        (for(i <- (0 to 100)) yield "s-%d".format(i)): _*).size must beLessThan(25) and beGreaterThan(0)
+        (for(i <- (0 to 100)) yield "s-%d".format(i)): _*).size must beLessThan(26) and beGreaterThan(0)
+    }
+    "have convenient counters" in {
+      val counter = Stats("localhost").counter("rejections")
+      counter.inc must contain("rejections:1|c")
+      counter.dec must contain("rejections:-1|c")
     }
   }
 }
