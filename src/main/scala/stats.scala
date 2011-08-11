@@ -10,10 +10,6 @@ trait Pusher[T] {
   def push(addr: SocketAddr, chan: DatagramChannel, stats: String*): Seq[T]
 }
 
-/*implicit object Printer extends Pusher[String] {
-  def push(addr: SocketAddr, chan: DatagramChannel, stats: String*) = stats
-}*/
-
 object Pusher {
   type BytesSent = Either[String, Int]
   implicit object DefaultPusher extends Pusher[BytesSent] {
