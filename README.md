@@ -9,7 +9,7 @@
        \/__/               \/__/               \/__/     \/__/     \/__/     \/__/
 
 
-A [scalaly][scala] [statsd][sd] client for [nettying](http://en.wikipedia.org/wiki/Butterfly_net) those wee stats collecting in the wind, or learn to instrument by playing the counter.
+A [scalaly][scala] [statsd][sd] client for [netting](http://en.wikipedia.org/wiki/Butterfly_net) those wee stats collecting in the wind, or learn to instrument by playing the counter.
 
 # usage
 
